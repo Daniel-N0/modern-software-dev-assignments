@@ -43,3 +43,15 @@ class ActionItemRead(BaseModel):
 class ActionItemPatch(BaseModel):
     description: Optional[str] = None
     completed: Optional[bool] = None
+
+
+class CategoryCreate(BaseModel):
+    name: str
+
+
+class CategoryRead(BaseModel):
+    id: int
+    name: str
+
+    class Config:
+        from_attributes = True
