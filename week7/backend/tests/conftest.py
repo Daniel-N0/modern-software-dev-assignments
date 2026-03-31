@@ -36,6 +36,10 @@ def client() -> Generator[TestClient, None, None]:
     with TestClient(app) as c:
         yield c
 
-    os.unlink(db_path)
+    engine.dispose()
 
+    import time
+    time.sleep(0.1)
+
+    os.unlink(db_path)
 
